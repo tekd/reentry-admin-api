@@ -1,0 +1,1500 @@
+SERVERSIDE:
+Build the schema
+Done
+Name is _queryType
+ .  Subname = name
+Query
+ .  Subname = description
+the schema allows the following query:
+ .  Subname = isTypeOf
+ .  Subname = _typeConfig
+ .  Subname = _interfaces
+ .  Subname = _fields
+ .  And the field is version
+ .  And the field is search
+ .  And the field is my_simplicity
+ .  And the field is budgetHistory
+ .  And the field is budgetSummary
+ .  And the field is budgetCashFlow
+ .  And the field is mda_address
+ .  And the field is mda_permits
+ .  And the field is mda_property
+Name is _mutationType
+Name is _subscriptionType
+Name is _directives
+Name is _typeMap
+Name is _implementations
+The graphql port is 8080
+GraphQL Server is now running on http://localhost:8080/graphql
+
+Query:
+{
+  __schema {
+    types {
+      name
+      description
+      fields {
+        name
+        description
+        isDeprecated
+        deprecationReason
+      }
+      inputFields {
+        name
+        description
+        defaultValue
+      }
+    }
+  }
+
+}
+
+RESULT:
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "Query",
+          "description": "the schema allows the following query:",
+          "fields": [
+            {
+              "name": "version",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "search",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "my_simplicity",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "budgetHistory",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "budgetSummary",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "budgetCashFlow",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "mda_address",
+              "description": "Address master table maintained by _Buncombe County_ and _City of Asheville_",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "mda_permits",
+              "description": "Property table maintained by _Buncombe County_ and _City of Asheville_",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "mda_property",
+              "description": "Property table maintained by _Buncombe County_ and _City of Asheville_",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "String",
+          "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "TypedSearchResult",
+          "description": "",
+          "fields": [
+            {
+              "name": "type",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "results",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "SearchResult",
+          "description": "",
+          "fields": [
+            {
+              "name": "type",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "score",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "Int",
+          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "UserDashboards",
+          "description": "",
+          "fields": [
+            {
+              "name": "email",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "groups",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptions",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "SimpleBudgetDetail",
+          "description": "",
+          "fields": [
+            {
+              "name": "account_type",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "account_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fund_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "department_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "division_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "costcenter_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "function_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "charcode_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "organization_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "category_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "budget_section_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "object_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "year",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "budget",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "actual",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "full_account_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "org_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "obj_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fund_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "dept_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "div_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cost_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "func_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "charcode",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "category_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "budget_section_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "proj_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "is_proposed",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "Float",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "SimpleBudgetSummary",
+          "description": "",
+          "fields": [
+            {
+              "name": "account_type",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "category_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "year",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "total_budget",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "total_actual",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "BudgetCashFlow",
+          "description": "",
+          "fields": [
+            {
+              "name": "account_type",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "category_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "category_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "dept_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "department_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fund_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fund_name",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "budget",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "year",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "ID",
+          "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "MDA_Address",
+          "description": "",
+          "fields": [
+            {
+              "name": "objectid",
+              "description": "Objectid: Unique integer ID generated for ArcGIS. Don't trust this.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x",
+              "description": "X: GPS X coordinate location of the address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "y",
+              "description": "Y: GPS Y coordinate location of the address.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "address",
+              "description": "Address: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "number",
+              "description": "Number: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "apt",
+              "description": "Apt: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "prefix",
+              "description": "Prefix: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "street_name",
+              "description": "Street Name: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "street_type",
+              "description": "Street Type: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "postdirection",
+              "description": "Postdirection: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "civicaddress_id",
+              "description": "Civic Address Id: Primary address ID used by the City.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "location_type",
+              "description": "Location Type: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "change_date",
+              "description": "Change Date: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "city",
+              "description": "City: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "zipcode",
+              "description": "Zipcode: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maximo_type",
+              "description": "Maximo Type: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "maximo_seq_num",
+              "description": "Maximo Seq Num: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "asset_code",
+              "description": "Asset Code: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "mrc",
+              "description": "Mrc: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pinnum",
+              "description": "Pinnum: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "truckday",
+              "description": "Truckday: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "accelaid",
+              "description": "Accelaid: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "centerline_id",
+              "description": "Centerline ID: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "location_id",
+              "description": "Location Id: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "parent_location_id",
+              "description": "Parent Location Id: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "MDA_Permits",
+          "description": "",
+          "fields": [
+            {
+              "name": "objectid",
+              "description": "Objectid: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_id",
+              "description": "Record Id: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_name",
+              "description": "Record Name: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "date_opened",
+              "description": "Date Opened: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_module",
+              "description": "Record Module: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_status",
+              "description": "Record Status: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_status_date",
+              "description": "Record Status Date: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_type",
+              "description": "Record Type: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "address",
+              "description": "Address: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "balance_due",
+              "description": "Balance Due: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "date_assigned",
+              "description": "Date Assigned: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "date_closed",
+              "description": "Date Closed: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "date_completed",
+              "description": "Date Completed: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "date_statused",
+              "description": "Date Statused: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": "Description: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "job_value",
+              "description": "Job Value: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_type_group",
+              "description": "Record Type Group: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_type_category",
+              "description": "Record Type Category: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_type_type",
+              "description": "Record Type Type: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_type_subtype",
+              "description": "Record Type Subtype: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "short_notes",
+              "description": "Short Notes: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "Status: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "apn",
+              "description": "Apn: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "parcel_number",
+              "description": "Parcel Number: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "license_number",
+              "description": "License Number: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "business_name",
+              "description": "Business Name: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record_comments",
+              "description": "Record Comments: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "MDA_Property",
+          "description": "",
+          "fields": [
+            {
+              "name": "objectid",
+              "description": "Objectid: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pinnum",
+              "description": "Pinnum: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pin",
+              "description": "Pin: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pinext",
+              "description": "Pinext: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "owner",
+              "description": "Owner: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nmptype",
+              "description": "Nmptype: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "taxyear",
+              "description": "Taxyear: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "condounit",
+              "description": "Condounit: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "condobuilding",
+              "description": "Condobuilding: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deedbook",
+              "description": "Deedbook: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deedpage",
+              "description": "Deedpage: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "platbook",
+              "description": "Platbook: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "platpage",
+              "description": "Platpage: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subname",
+              "description": "Subname: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sublot",
+              "description": "Sublot: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subblock",
+              "description": "Subblock: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subsect",
+              "description": "Subsect: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updatedate",
+              "description": "Updatedate: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "housenumber",
+              "description": "Housenumber: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "numbersuffix",
+              "description": "Numbersuffix: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "direction",
+              "description": "Direction: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "streetname",
+              "description": "Streetname: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "streettype",
+              "description": "Streettype: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "township",
+              "description": "Township: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "acreage",
+              "description": "Acreage: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "accountnumber",
+              "description": "Accountnumber: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deeddate",
+              "description": "Deeddate: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stamps",
+              "description": "Stamps: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "instrument",
+              "description": "Instrument: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reason",
+              "description": "Reason: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "county",
+              "description": "County: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "city",
+              "description": "City: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "firedistrict",
+              "description": "Firedistrict: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "schooldistrict",
+              "description": "Schooldistrict: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "careof",
+              "description": "Careof: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "address",
+              "description": "Address: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cityname",
+              "description": "Cityname: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state",
+              "description": "State: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "zipcode",
+              "description": "Zipcode: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "class",
+              "description": "Class: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "improved",
+              "description": "Improved: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exempt",
+              "description": "Exempt: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "priced",
+              "description": "Priced: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalmarketvalue",
+              "description": "Totalmarketvalue: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "appraisedvalue",
+              "description": "Appraisedvalue: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "taxvalue",
+              "description": "Taxvalue: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "landuse",
+              "description": "Landuse: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "neighborhoodcode",
+              "description": "Neighborhoodcode: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "landvalue",
+              "description": "Landvalue: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "buildingvalue",
+              "description": "Buildingvalue: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "improvementvalue",
+              "description": "Improvementvalue: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "appraisalarea",
+              "description": "Appraisalarea: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state_route",
+              "description": "State Route: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state_route_suffix",
+              "description": "State Route Suffix: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "propcard",
+              "description": "Propcard: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "oldpinnum",
+              "description": "Oldpinnum: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "citystatezip",
+              "description": "Citystatezip: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deedurl",
+              "description": "Deedurl: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "platurl",
+              "description": "Platurl: TBD",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__Schema",
+          "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation, and subscription operations.",
+          "fields": [
+            {
+              "name": "types",
+              "description": "A list of all types supported by this server.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "queryType",
+              "description": "The type that query operations will be rooted at.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "mutationType",
+              "description": "If this server supports mutation, the type that mutation operations will be rooted at.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subscriptionType",
+              "description": "If this server support subscription, the type that subscription operations will be rooted at.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "directives",
+              "description": "A list of all directives supported by this server.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__Type",
+          "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name and description, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
+          "fields": [
+            {
+              "name": "kind",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fields",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "interfaces",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "possibleTypes",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "enumValues",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "inputFields",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ofType",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__TypeKind",
+          "description": "An enum describing what kind of type a given `__Type` is.",
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "Boolean",
+          "description": "The `Boolean` scalar type represents `true` or `false`.",
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "__Field",
+          "description": "Object and Interface types are described by a list of Fields, each of which has a name, potentially a list of arguments, and a return type.",
+          "fields": [
+            {
+              "name": "name",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "args",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isDeprecated",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deprecationReason",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__InputValue",
+          "description": "Arguments provided to Fields or Directives and the input fields of an InputObject are represented as Input Values which describe their type and optionally a default value.",
+          "fields": [
+            {
+              "name": "name",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "defaultValue",
+              "description": "A GraphQL-formatted string representing the default value for this input value.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__EnumValue",
+          "description": "One possible value for a given Enum. Enum values are unique values, not a placeholder for a string or numeric value. However an Enum value is returned in a JSON response as a string.",
+          "fields": [
+            {
+              "name": "name",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isDeprecated",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deprecationReason",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__Directive",
+          "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document.\n\nIn some cases, you need to provide options to alter GraphQL's execution behavior in ways field arguments will not suffice, such as conditionally including or skipping a field. Directives provide this by describing additional information to the executor.",
+          "fields": [
+            {
+              "name": "name",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "locations",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "args",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__DirectiveLocation",
+          "description": "A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.",
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "SillyResult",
+          "description": "",
+          "fields": [
+            {
+              "name": "score",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "text",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "AddressResult",
+          "description": "",
+          "fields": [
+            {
+              "name": "score",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "civic_address_id",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "address",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pinnum",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "is_in_city",
+              "description": "",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null
+        }
+      ]
+    }
+  }
+}
