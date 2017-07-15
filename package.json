@@ -1,7 +1,7 @@
 {
   "name": "reentry-admin-api",
   "version": "1.0.0",
-  "description": "Administrative API for reentry resources hub",
+  "description": "GraphQL server for reentry hub administration",
   "scripts": {
     "start": "nodemon ./server.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cityofasheville/simplicity-graphql-server.git"
+    "url": "git+https://github.com/CodeForNC/reentry-admin-ui.git"
   },
   "keywords": [
     "reentry",
     "GraphQL"
   ],
-  "author": "Code for NC",
-  "license": "",
-  "homepage": "https://github.com/cityofasheville/simplicity-graphql-server",
+  "author": "Eric Jackson <ejackson@ashevillenc.gov>",
+  "license": "GPLV3",
+  "homepage": "https://github.com/CodeForNC/reentry-admin-ui",
   "dependencies": {
     "apollo-server": "^0.2.0",
     "body-parser": "^1.15.2",
