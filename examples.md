@@ -2,9 +2,32 @@
 
 ## Queries
 
+### Site configuration
+query {
+  config {
+    pairs {
+      name
+      value
+    }
+  }
+}
+
+### Locale configuration
 ````
 query {
   config (locale: "buncombe") {
+    pairs {
+      name
+      value
+    }
+  }
+}
+````
+
+### Topic and locale configuration
+````
+query {
+  config (locale: "buncombe", topic: "jobs") {
     pairs {
       name
       value
