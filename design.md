@@ -1,5 +1,7 @@
 # Design of the Administrative Application
 
+__ IMPORTANT: THIS INFORMATION IS OLD - DO NOT ASSUME ANYTHING HERE IS CORRECT__
+
 In effect, the administrative interface to the reentry hub has a very simple purpose: to provide a user-friendly way for content editors to edit the underlying JSON files that are used to create the public site. The system must obviously also authenticate users and enforce permissions that prevent unauthorized users from modifying content.
 
 To keep development of the administration client relatively simple, we will want to use a domain-specific API for communication with the server where the content files are stored. In other words, we want to allow a front-end developer of the reentry hub to issue, e.g., ```addResource``` or ```updateDescription``` commands with parameters specifying the county and topic. 
