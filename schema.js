@@ -26,10 +26,11 @@ const baseSchema = `
   }
 `;
 
-const addSchema = `
+// This contains the schema for description and resources. Move
+// the appropriate types and endpoints when implementing.
+const schemaAdditions = `
 
-
-  type DescriptionInput {
+  input DescriptionInput {
     description: [String]
   }
 
@@ -44,8 +45,15 @@ const addSchema = `
     category: String
   }
 
+  input ResourceInput {
+    name: String!
+    description: String!
+    url: String
+    category: String
+  }
+
   input ResourcesInput {
-    resources: [Resource]
+    resources: [ResourceInput]
   }
 
   type Resources {
