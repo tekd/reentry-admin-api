@@ -17,9 +17,17 @@ const resolvers = {
         path = `${contentBase}/jurisdictions/${locale}/${topic}/config.json`;
       }
       if (path !== null && fs.existsSync(path)) {
-        result = JSON.parse(fs.readFileSync(path));
+        const c = JSON.parse(fs.readFileSync(path));
+        for (const nm in c) {
+          if (c.hasOwnProperty(nm)) {
+            const pair = { name: null, value: null };
+            pair.name = nm;
+            pair.value = c[nm];
+            result.pairs.push(pair);
+          }
+        }
       }
-    console.log(result);
+      console.log(result);
       return result;
     },
   },
@@ -46,7 +54,7 @@ const resolvers = {
     },
   },
   NameValuePair: {
-    name(obj, args, context) { return obj.name; },
+    name(obj, args, context) { console.log(`Returning name ${obj.name}`); return obj.name; },
     value(obj, args, context) { return obj.value; },
   },
   Configuration: {
