@@ -1,31 +1,3 @@
-const baseSchema = `
-  type NameValuePair {
-    name: String!
-    value: String!
-  }
-
-  input NameValuePairInput {
-    name: String!
-    value: String!
-  }
-
-  type Configuration {
-    pairs: [NameValuePair]
-  }
-
-  input ConfigurationInput {
-    pairs: [NameValuePairInput]
-  }
-
-  type Query {
-    config ( locale: String, topic: String ): Configuration
-  }
-
-  type Mutation {
-    updateConfig ( locale: String, topic: String, content: ConfigurationInput! ): Configuration
-  }
-`;
-
 // This contains the schema for description and resources. Move
 // the appropriate types and endpoints when implementing.
 const schemaAdditions = `
@@ -73,4 +45,18 @@ const schemaAdditions = `
   }
 `;
 
-module.exports = baseSchema;
+const baseSchema = `
+  
+  type Mutation {
+    null: Boolean
+  }
+
+  type Query {
+    version: String
+  }
+`;
+
+module.exports = baseSchema.concat(
+  require('./gql_types/configuration/configuration_schema'),
+);
+
