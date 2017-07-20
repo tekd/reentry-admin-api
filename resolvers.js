@@ -1,62 +1,15 @@
-/*
-    config ( locale: String, topic: String ): Configuration
-    description ( locale: String, topic: String ): Description
-    resources ( locale: String, topic: String, which: String ): Resources
-*/
-
-const fs = require('fs');
-const contentBase = require('./config').contentDir;
+const { merge } = require('lodash');
 
 const resolverMap = {
   Query: {
-    config(obj, args, context) {
-      let result = { pairs: [] };
-      let path = null;
-      const locale = args.locale || null;
-      const topic = args.topic || null;
-
-      if (locale === null && topic === null) {
-        path = `${contentBase}/config.json`;
-      } else if (locale !== null && topic === null) {
-        path = `${contentBase}/jurisdictions/${locale}/config.json`;
-      } else if (locale !== null && topic !== null) {
-        path = `${contentBase}/jurisdictions/${locale}/${topic}/config.json`;
-      }
-      if (path !== null && fs.existsSync(path)) {
-        result = JSON.parse(fs.readFileSync(path));
-      }
-      return result;
+    version(obj, args, context) {
+      return '1.0';
     },
-  },
-  Mutation: {
-    updateConfig(obj, args) {
-      console.log(JSON.stringify(args));
-      let path = null;
-      const locale = args.locale || null;
-      const topic = args.topic || null;
-
-      if (locale === null && topic === null) {
-        path = `${contentBase}/config.json`;
-      } else if (locale !== null && topic === null) {
-        path = `${contentBase}/jurisdictions/${locale}/config.json`;
-      } else if (locale !== null && topic !== null) {
-        path = `${contentBase}/jurisdictions/${locale}/${topic}/config.json`;
-      }
-      if (path !== null && fs.existsSync(path)) {
-        const content = JSON.stringify({ pairs: args.content.pairs });
-        console.log(`Writing it out: ${content}`);
-        fs.writeFileSync(path, content);
-      }
-      return args.content;
-    },
-  },
-  NameValuePair: {
-    name(obj, args, context) { return obj.name; },
-    value(obj, args, context) { return obj.value; },
-  },
-  Configuration: {
-    pairs(obj, args, context) { return obj.pairs; },
   },
 };
 
 module.exports = resolverMap;
+module.exports = merge(
+  resolverMap,
+  require('./gql_types/configuration/configuration_resolver')
+);
