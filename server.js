@@ -18,16 +18,17 @@ console.log('Done');
 // submodules is needed to avoid problems with webpack (import seems to require
 // beta version of webpack 2).
 const firebase = require('firebase');
-// firebase.initializeApp({
-//   serviceAccount: './SimpliCityII-284f9d0ebb83.json',
-//   databaseURL: 'https://simplicityii-878be.firebaseio.com',
-// });
+
+firebase.initializeApp({
+  serviceAccount: './nc-reentry-hub-firebase-adminsdk-fafnw-64349352ad.json',
+  databaseURL: 'https://nc-reentry-hub.firebaseio.com',
+});
 
 const GRAPHQL_PORT = process.env.PORT || 8080;
 console.log(`The graphql port is ${GRAPHQL_PORT}`);
 const graphQLServer = express().use('*', cors());
 
-graphQLServer.use('/graphql', bodyParser.json(), apolloExpress((req, res) => {
+graphQLServer.use('/graphql', bodyParser.json(), apolloExpress((req, res) => { // eslint-disable-line
   if (!req.headers.authorization || req.headers.authorization === 'null') {
     console.log('NOT LOGGED IN');
     return {
@@ -43,6 +44,35 @@ graphQLServer.use('/graphql', bodyParser.json(), apolloExpress((req, res) => {
       },
     };
   }
+  return firebase.auth().verifyIdToken(req.headers.authorization).then((decodedToken) => {
+    console.log('auth-verify');
+    return {
+      schema: executableSchema,
+      context: {
+        loggedin: true,
+        token: req.headers.authorization,
+        uid: decodedToken.uid,
+        name: decodedToken.name,
+        email: decodedToken.email,
+      },
+    };
+  }).catch((error) => {
+    if (req.headers.authorization !== 'null') {
+      console.log(`Error decoding firebase token: ${JSON.stringify(error)}`);
+    }
+    return {
+      schema: executableSchema,
+      context: {
+        loggedin: false,
+        token: null,
+        uid: null,
+        name: null,
+        email: null,
+        groups: [],
+        subscriptions: null,
+      },
+    };
+  });
 }));
 
 graphQLServer.use('/graphiql', graphiqlExpress({

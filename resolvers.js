@@ -11,5 +11,7 @@ const resolverMap = {
 module.exports = resolverMap;
 module.exports = merge(
   resolverMap,
-  require('./gql_types/configuration/configuration_resolver')
+  require('./gql_types/configuration').resolvers,
+//  require('./gql_types/description').resolvers,
+//  require('./gql_types/resources').resolvers,
 );

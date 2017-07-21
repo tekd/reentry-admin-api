@@ -4,13 +4,14 @@ const contentBase = require('../../config').contentDir;
 const resolvers = {
   Query: {
     config(obj, args, context) {
-      let result = { pairs: [] };
+      const result = { pairs: [] };
       let path = null;
       const locale = args.locale || null;
       const topic = args.topic || null;
-
       if (locale === null && topic === null) {
         path = `${contentBase}/config.json`;
+      } else if (locale === null && topic !== null) {
+        path = `${contentBase}/topics/${topic}/config.json`;
       } else if (locale !== null && topic === null) {
         path = `${contentBase}/jurisdictions/${locale}/config.json`;
       } else if (locale !== null && topic !== null) {
@@ -27,7 +28,6 @@ const resolvers = {
           }
         }
       }
-      console.log(result);
       return result;
     },
   },
@@ -40,6 +40,8 @@ const resolvers = {
 
       if (locale === null && topic === null) {
         path = `${contentBase}/config.json`;
+      } else if (locale === null && topic !== null) {
+        path = `${contentBase}/topics/${topic}/config.json`;
       } else if (locale !== null && topic === null) {
         path = `${contentBase}/jurisdictions/${locale}/config.json`;
       } else if (locale !== null && topic !== null) {
@@ -54,7 +56,7 @@ const resolvers = {
     },
   },
   NameValuePair: {
-    name(obj, args, context) { console.log(`Returning name ${obj.name}`); return obj.name; },
+    name(obj, args, context) { return obj.name; },
     value(obj, args, context) { return obj.value; },
   },
   Configuration: {
